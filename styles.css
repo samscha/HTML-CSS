@@ -1,0 +1,24 @@
+@import "./components/Bookmarks.css";
+@import "./components/Header.css";
+@import "./components/Introduction.css";
+@import "./components/Welcome.css";
+@import "./components/MenuSection.css";
+@import "./components/Footer.css";
+
+@font-face {
+  font-family: system;
+  font-style: normal;
+  font-weight: 300;
+  src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+}
+
+body {
+	background-color: #d3d3d3;
+	font-family: "system";
+	margin: 0;
+	width: 100%;
+	min-width: 500px;
+	/* flexbox properties */
+	display: flex;
+	flex-direction: column;
+}
