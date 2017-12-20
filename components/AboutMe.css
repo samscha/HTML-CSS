@@ -1,0 +1,29 @@
+.AboutMeContent {
+	padding-top: 24px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;	
+}
+
+.AboutMeContent img {
+	height: 50%;
+	width: 50%;	
+}
+
+@media (min-width: 700px) {
+	.AboutMeContent {
+		padding-left: 24px;
+		align-items: flex-start;
+		flex-direction: row;
+	}
+
+	.AboutMeContent img {
+		max-height: 240px;
+		max-width: 320px;
+		padding-bottom: 24px;
+	}
+
+	.AboutMeContent p {
+		margin-top: 0;
+	}
+}

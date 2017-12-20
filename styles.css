@@ -3,6 +3,9 @@
 @import "./components/Introduction.css";
 @import "./components/Welcome.css";
 @import "./components/MenuSection.css";
+@import "./components/AboutMe.css";
+@import "./components/Projects.css";
+@import "./components/Contact.css";
 @import "./components/Footer.css";
 
 @font-face {
@@ -18,7 +21,6 @@ body {
 	margin: 0;
 	width: 100%;
 	min-width: 500px;
-	/* flexbox properties */
 	display: flex;
 	flex-direction: column;
 }

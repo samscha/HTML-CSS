@@ -1,0 +1,25 @@
+.ProjectsContent {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+.ProjectsContent__project {
+	margin-top: 10px;
+	margin-left: 12px;
+	margin-right: 12px;
+	margin-bottom: 10px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.ProjectsContent__project img {
+	height: 250px;
+	width: 250px;
+	object-fit: contain;
+}
+
+.ProjectsContent__project p {
+	margin-top: 0;
+}
