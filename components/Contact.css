@@ -25,11 +25,11 @@
 }
 
 .ContactContent__contact p {
-	font-weight: bolder;
 	height: 50px;
 	width: 200px;
 	padding-left: 10px;
 	padding-right: 10px;
+	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 }
