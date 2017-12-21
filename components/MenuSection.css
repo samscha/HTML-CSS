@@ -1,13 +1,14 @@
 .MenuSection {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 }
 
 .MenuSection__titleText {
 	background-color: #4df1ff;
 	font-size: 20px;
-	font-weight: bolder;
 	padding: 10px;
+	display: flex;
 }
 
 .MenuSection__infoText {

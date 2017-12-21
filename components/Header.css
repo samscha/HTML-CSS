@@ -7,14 +7,6 @@
 
 .Header__menuItem {
 	font-size: 20px;
-	font-weight: bolder;
 	padding-left: 7%; 
 	padding-right: 7%;
-}
-
-@media (min-width: 900px) {
-	.Header__menuItem {
-		padding-left: 10%;
-		padding-right: 10%;
-	}
 }

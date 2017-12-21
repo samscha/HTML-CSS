@@ -6,24 +6,25 @@
 }
 
 .AboutMeContent img {
-	height: 50%;
-	width: 50%;	
+	height: 240px;
+	width: 320px;
 }
 
 @media (min-width: 700px) {
 	.AboutMeContent {
-		padding-left: 24px;
 		align-items: flex-start;
 		flex-direction: row;
 	}
 
 	.AboutMeContent img {
-		max-height: 240px;
-		max-width: 320px;
+		height: 240px;
+		width: 320px;
 		padding-bottom: 24px;
+		padding-left: 24px;
 	}
 
 	.AboutMeContent p {
 		margin-top: 0;
+		padding-right: 24px;
 	}
 }
