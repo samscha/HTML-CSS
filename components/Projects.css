@@ -23,3 +23,22 @@
 .ProjectsContent__project p {
 	margin-top: 0;
 }
+
+.ProjectsContent__project-selected {
+	display: none;
+	/*add border*/
+}
+
+.ProjectsContent__projLink {
+	display: none;
+}
+
+.ProjectsContent__projLink-selected {
+	display: flex;
+}
+
+.ProjectsContent__projLink-selected img {
+	height: 250px;
+	width: 250px;
+	object-fit: contain;
+}
