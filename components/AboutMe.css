@@ -12,8 +12,8 @@
 
 @media (min-width: 700px) {
 	.AboutMeContent {
-		align-items: flex-start;
 		flex-direction: row;
+		align-items: flex-start;
 	}
 
 	.AboutMeContent img {
