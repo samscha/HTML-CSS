@@ -33,3 +33,12 @@
 	align-items: center;
 	justify-content: flex-start;
 }
+
+.ContactContent__contact button {
+	height: 20px;
+	width: 150px;
+}
+/*
+.ContactContent__contact input {
+	display: none;
+}*/

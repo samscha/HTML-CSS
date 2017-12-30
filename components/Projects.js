@@ -62,19 +62,12 @@ class Projects {
 			}
 		});
 
-		this.init();
+		// this.init();
 	}
 
-	init() {
-		// this.activeKey = this.element.querySelector(".Project__back")
-		// this.activeKey = this.activeKey.dataset.proj;
-		// this.projects[this.activeKey].select();
-		// this.portals[this.activeKey].select();
-	}
+	// init() {}
 
 	updateActive(key) {
-		// console.log(key);
-		// console.log(this.activeKey);
 		if (key === this.activeKey) {
 			this.projects[this.activeKey].hide();
 			this.portals[this.activeKey].hide();
@@ -84,7 +77,6 @@ class Projects {
 			this.projects[this.activeKey].show();
 			this.portals[this.activeKey].show();
 		}
-		// console.log(this.activeKey);
 	}
 }
 

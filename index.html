@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="./styles.css">
 	</head>
 	<body>
+		<script defer="defer" src="./components/General.js"></script>
 		<script defer="defer" src="./components/Projects.js"></script>
 
 		<div class="Header">
@@ -183,6 +184,7 @@
 				contact
 			</p>
 			<div class="ContactContent">
+				<input id="input" type="hidden"/>
 				<div class="ContactContent__contact">
 					<img src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/118/mobile-phone_1f4f1.png" srcset="https://emojipedia-us.s3.amazonaws.com/thumbs/240/apple/118/mobile-phone_1f4f1.png 2x" alt="Mobile Phone on Apple iOS 11.2">
 					<p class="MenuSection__infoText">
@@ -190,9 +192,9 @@
 					</p>
 				</div>
 				<div class="ContactContent__contact">
-					<img src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/118/inbox-tray_1f4e5.png" srcset="https://emojipedia-us.s3.amazonaws.com/thumbs/240/apple/118/inbox-tray_1f4e5.png 2x" alt="Inbox Tray on Apple iOS 11.2">
+					<a href="mailto: myemail@gmail.com"><img src="https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/118/inbox-tray_1f4e5.png" srcset="https://emojipedia-us.s3.amazonaws.com/thumbs/240/apple/118/inbox-tray_1f4e5.png 2x" alt="Inbox Tray on Apple iOS 11.2"></a>
 					<p class="MenuSection__infoText">
-						<a href="mailto: chasamuels@gmail.com">chasamuels@gmail.com</a>	
+						<button class="emailAddressButton emailAddress" value="chasamuels@gmail.com" id="emailAddressButtonID">chasamuels@gmail.com</button>
 					</p>
 				</div>
 				<a href="https://www.linkedin.com/in/chasoonjin/" target="_blank">

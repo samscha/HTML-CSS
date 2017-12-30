@@ -5,7 +5,7 @@
 }
 
 .Project {
-	border-bottom: 2px solid black;
+	/*border-bottom: 2px solid black;*/
 	margin-top: 10px;
 	margin-left: 12px;
 	margin-right: 12px;
@@ -13,6 +13,8 @@
 }
 
 .Project__face {
+	margin-left: 25px;
+	margin-right: 25px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
