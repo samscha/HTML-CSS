@@ -1,9 +1,6 @@
-class Portal {
+class ProjectBack {
 	constructor(element) {
 		this.element = element;
-		this.element.addEventListener('click', (event) => {
-			event.projKey = this.element.dataset.proj;
-		});
 	}
 
 	show() {
@@ -13,18 +10,11 @@ class Portal {
 	hide() {
 		this.element.classList.remove("Project__back-selected");
 	}
-
-	toggle() {
-		this.element.classList.toggle("Project__back-selected");
-	}
 }
 
-class Project {
+class ProjectFace {
 	constructor(element) {
 		this.element = element;
-		this.element.addEventListener('click', (event) => {
-			event.projKey = this.element.dataset.proj;
-		});
 	}
 
 	show() {
@@ -34,51 +24,121 @@ class Project {
 	hide() {
 		this.element.classList.remove("Project__face-selected")
 	}
+}
 
-	toggle() {
-		this.element.classList.toggle("Project__face-selected")
+class Project {
+	constructor(element) {
+		this.element = element;
+		this.face = new ProjectFace(this.element.querySelector(".Project__face"));
+		this.back = new ProjectBack(this.element.querySelector(".Project__back"));
+		this.element.addEventListener('click', (event) => {
+			event.projKey = this.element.dataset.proj;
+		});
+	}
+
+	show() {
+		this.element.classList.add("Project-selected");
+	}
+
+	hide() {
+		this.element.classList.remove("Project-selected");
 	}
 }
 
-class Projects {
+class CarouselArrow {
 	constructor(element) {
 		this.element = element;
-    	this.projects = element.querySelectorAll(".Project__face");
-		this.projects = Array.from(this.projects).reduce((obj, project) => {
-			obj[project.dataset.proj] = new Project(project);
-			return obj;
-		}, {});
 
-		this.portals = this.element.querySelectorAll(".Project__back");
-		this.portals = Array.from(this.portals).reduce((obj, portal) => {
-			obj[portal.dataset.proj] = new Portal(portal);
-			return obj;
-		}, {});
+		this.element.addEventListener('click', (event) => {
+			event.direction = this.element.dataset.arrow
+		});
+	}
+}
+
+class Carousel {
+	constructor(element) {
+		this.element = element;
+		this.left;
+		this.right;
+    	this.projects;
+    	this.projectsArray;
+    	this.activeProject;
 
 		this.element.addEventListener('click', (event) => {
 			if (event.projKey) {
 				this.updateActive(event.projKey);
 				event.stopPropagation();
 			}
+
+			if (event.direction) {
+				this.updateCarousel(event.direction);
+				event.stopPropagation();
+				event.direction = null;
+			}
 		});
 
-		// this.init();
+		this.init();
 	}
 
-	// init() {}
+	init() {
+		this.left = new CarouselArrow(this.element.querySelector(".Carousel__arrow-left"));
+		this.right = new CarouselArrow(this.element.querySelector(".Carousel__arrow-right"));
+
+		this.projects = this.element.querySelectorAll(".Project");
+		this.projects = Array.from(this.projects).reduce((obj, project) => {
+			obj[project.dataset.proj] = new Project(project);
+			return obj;
+		}, {});
+
+		this.projectsArray = Object.values(this.projects);
+
+		this.activeProject = document.querySelector(".Project-focused");
+		if (this.activeProject) {
+			Object.values(this.projects).forEach((project) => {
+				if (this.activeProject === project.element) {
+					this.activeProject = project;
+				}
+			});
+		} else {
+			this.activeProject = this.projects["portfolioweb"];
+		}
+		this.activeProject.show();
+	}
+
+	updateCarousel(direction) {
+		this.activeProject.hide();
+		this.activeProject = this.projectsArray[this.moveCarousel(direction)];
+		this.activeProject.show();
+	}
+
+	moveCarousel(direction) {
+		let currentIndex = 0;
+		for (let i = 0; i < this.projectsArray.length; i++) {
+			if (this.projectsArray[i] === this.activeProject) currentIndex = i;
+		}
+
+		if (direction === 'l') {
+			if (currentIndex === 0) return this.projectsArray.length - 1;
+			else return --currentIndex;
+		} else {
+			if (currentIndex === this.projectsArray.length - 1) return 0;
+			else return ++currentIndex;
+		}
+	}
 
 	updateActive(key) {
 		if (key === this.activeKey) {
-			this.projects[this.activeKey].hide();
-			this.portals[this.activeKey].hide();
+			this.projects[this.activeKey].face.hide();
+			this.projects[this.activeKey].back.hide();
 			this.activeKey = undefined;
 		} else {
 			this.activeKey = key;
-			this.projects[this.activeKey].show();
-			this.portals[this.activeKey].show();
+			this.projects[this.activeKey].face.show();
+			this.projects[this.activeKey].back.show();
 		}
 	}
 }
 
-let projects = document.querySelectorAll(".ProjectsContent");
-projects = Array.from(projects).map(projects => new Projects(projects));
+// let projects = document.querySelectorAll(".ProjectsContent");
+let carousel = document.querySelectorAll(".Carousel");
+carousel = Array.from(carousel).map(projects => new Carousel(projects));

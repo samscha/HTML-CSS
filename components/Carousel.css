@@ -1,0 +1,22 @@
+.Carousel {
+	display: flex;
+	direction: row;
+	justify-content: center;
+}
+
+.Carousel__projects {
+	display: flex;
+	direction: row;
+}
+
+.Carousel__arrow-left {
+	font-size: 70px;
+	margin-left: 50px;
+	align-self: center;
+}
+
+.Carousel__arrow-right {
+	font-size: 70px;
+	margin-right: 50px;
+	align-self: center;
+}

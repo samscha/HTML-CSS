@@ -1,8 +1,15 @@
 .Introduction {
-	margin: 10px;
+	margin-bottom: 25px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.Introduction img {
+	heigh: 200px;
+	width: 100%;
+	object-fit: contain;
+	/*position: fixed;	*/
 }
 
 .Introduction__name {
@@ -12,8 +19,9 @@
 }
 
 .Introduction__quote {
-	font-size: 36px;
-	font-style: oblique;
+	font-size: 24px;
+	/*font-style: oblique;*/
 	margin-top: 0;
 	margin-bottom: 0;
 }
+
