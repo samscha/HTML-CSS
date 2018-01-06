@@ -31,9 +31,17 @@ class Project {
 		this.element = element;
 		this.face = new ProjectFace(this.element.querySelector(".Project__face"));
 		this.back = new ProjectBack(this.element.querySelector(".Project__back"));
+
 		this.element.addEventListener('click', (event) => {
 			event.projKey = this.element.dataset.proj;
 		});
+
+		this.init();
+	}
+
+	init() {
+		this.face.show();
+		this.back.hide();
 	}
 
 	show() {
@@ -42,6 +50,8 @@ class Project {
 
 	hide() {
 		this.element.classList.remove("Project-selected");
+		this.back.hide();
+		this.face.show();
 	}
 }
 
@@ -49,10 +59,32 @@ class CarouselArrow {
 	constructor(element) {
 		this.element = element;
 
+		this.element.addEventListener('mousedown', (event) => {
+			this.element.classList.add("Carousel__arrow-click");
+		});
+
+		this.element.addEventListener('mouseup', (event) => {
+			this.element.classList.remove("Carousel__arrow-click");
+		});
+
 		this.element.addEventListener('click', (event) => {
 			event.direction = this.element.dataset.arrow
 		});
+
+		this.element.addEventListener('mouseover', (event) => {
+			this.element.classList.add("Carousel__arrow-mouseover");
+		});
+
+		this.element.addEventListener('mouseout', (event) => {
+			this.element.classList.remove("Carousel__arrow-mouseover");
+			this.element.classList.remove("Carousel__arrow-click");
+		});
 	}
+
+	mouseDown() {
+			this.element.classList.add("Carousel__arrow-click");
+		}
+
 }
 
 class Carousel {
@@ -102,6 +134,7 @@ class Carousel {
 		} else {
 			this.activeProject = this.projects["portfolioweb"];
 		}
+
 		this.activeProject.show();
 	}
 
@@ -128,17 +161,24 @@ class Carousel {
 
 	updateActive(key) {
 		if (key === this.activeKey) {
-			this.projects[this.activeKey].face.hide();
-			this.projects[this.activeKey].back.hide();
-			this.activeKey = undefined;
+			this.showFront();
 		} else {
 			this.activeKey = key;
-			this.projects[this.activeKey].face.show();
-			this.projects[this.activeKey].back.show();
+			this.showBack();
 		}
+	}
+
+	showFront() {
+		this.projects[this.activeKey].face.show();
+		this.projects[this.activeKey].back.hide();
+		this.activeKey = undefined;
+	}
+
+	showBack() {
+		this.projects[this.activeKey].face.hide();
+		this.projects[this.activeKey].back.show();
 	}
 }
 
-// let projects = document.querySelectorAll(".ProjectsContent");
 let carousel = document.querySelectorAll(".Carousel");
 carousel = Array.from(carousel).map(projects => new Carousel(projects));
